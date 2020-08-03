@@ -1,0 +1,8 @@
+{
+    "PORTDB": "3306",
+    "PORT": 4000,
+    "USER": "root",
+    "PASSWORD": "",
+    "HOST": "localhost",
+    "BDNAME": "experience"
+}
