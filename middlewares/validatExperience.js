@@ -28,9 +28,8 @@ const xpRepeat = (req,res,next) => {
         })
 }
 const blank =(req,res,next) => {
-    const {title,description,room_id} = req.body;
-     if(title.length > 3 || !description.length > 3|| !room_id.length > 0) {
-         console.log(title.length);
+    const {title,description} = req.body;
+     if(title.length >= 3 && description.length > 10) {
          return next()
      }
      return res.status(404).json({erros: 'It is missing information'});

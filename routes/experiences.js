@@ -3,8 +3,17 @@ const sequelize = require('sequelize');
 const middlewares = require('../middlewares/validatExperience');
 const roomValidation = require('../middlewares/validateRoom');
 const dataBase = require('../configuration/sequelize');
+const confiMulter = require('./views/multer');
 const router = express.Router();
 
+router.get('/',(req,res) => {
+    res.render('index');
+});
+
+router.post('/',confiMulter.upload,(req,res) => {
+    console.log(req.file);
+    res.send('uploaded');
+})
 router.get('/',(req,res) => {
     const query = 'SELECT experiences.*, rooms.room_name FROM experiences JOIN rooms ON experiences.room_id = rooms.id';
     dataBase.query(query, {type: sequelize.QueryTypes.SELECT})
